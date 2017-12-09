@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AllPosts from './components/AllPosts';
 import SinglePost from './components/SinglePost';
+import NewPost from './components/NewPost';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
@@ -14,7 +15,8 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <Route path="/post/:id" component={SinglePost} />
+        <Route path="/posts/new" component={NewPost} />
+        <Route path="/posts/:id" component={SinglePost} />
         <Route path="/" component={AllPosts} />
       </div>
     </BrowserRouter>
